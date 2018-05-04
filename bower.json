@@ -1,0 +1,6 @@
+{
+  "name": "test-task",
+  "dependencies": {
+    "jquery-ui": "^1.12.1"
+  }
+}
