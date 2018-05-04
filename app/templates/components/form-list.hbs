@@ -1,0 +1,5 @@
+{{#ui-sortable content=list class="list"  moved=(action "movedItem") as |item|}}
+  <li draggable="true">
+    <span class="badge">{{item.position}}</span> {{item.title}} {{item.priority}}
+  </li>
+{{/ui-sortable}}
