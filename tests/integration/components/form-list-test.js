@@ -10,15 +10,14 @@ test('it renders', function(assert) {
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{form-list}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#form-list}}
-      template block text
-    {{/form-list}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  let length = this.$('li').length;
+  this.set('length', length);
+  let position = [];
+  this.set('position', position);
+  assert.equal(length, 10, 'The hole Solar System is here');
+  for(let i = 0; i < length; i++) {
+    i < 4 ? position[i] = i : position[i] = position[i-1] + position[i-2];
+    assert.equal(this.$('.badge')[i].innerText, position[i], `${i}th position is right`);
+    assert.ok(this.$('[draggable = true]')[0], `${i}th item is draggable`);
+  };
 });
